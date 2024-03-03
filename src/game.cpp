@@ -83,6 +83,9 @@ void Game::HandleInput()
         RotateBlock();
         break;
     }
+    if (IsKeyDown(KEY_DOWN)) {
+        MoveBlockDown();
+    }
 }
 
 void Game::MoveBlockLeft()
