@@ -86,6 +86,9 @@ void Game::HandleInput()
     if (IsKeyDown(KEY_DOWN)) {
         MoveBlockDown();
     }
+    // if (IsKeyPressedRepeat(KEY_DOWN)) {
+    //     FastDrop();
+    // }
 }
 
 void Game::MoveBlockLeft()
@@ -117,6 +120,19 @@ void Game::MoveBlockDown()
     if (!gameOver)
     {
         currentBlock.Move(1, 0);
+        if (IsBlockOutside() || BlockFits() == false)
+        {
+            currentBlock.Move(-1, 0);
+            LockBlock();
+        }
+    }
+}
+
+void Game::FastDrop()
+{
+    if (!gameOver)
+    {
+        currentBlock.Move(20, 0);
         if (IsBlockOutside() || BlockFits() == false)
         {
             currentBlock.Move(-1, 0);

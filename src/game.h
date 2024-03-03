@@ -15,6 +15,7 @@ public:
     Music music;
 
 private:
+    void FastDrop();
     void MoveBlockLeft();
     void MoveBlockRight();
     Block GetRandomBlock();
